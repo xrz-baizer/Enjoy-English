@@ -69,7 +69,7 @@ export const AudiosTable = (props: {
                             className="text-destructive w-4 h-4"
                           />
                         )}
-                        <div className="cursor-pointer truncate max-w-[12rem]">
+                        <div className="cursor-pointer truncate max-w-[20rem]">
                           {audio.name}
                         </div>
                       </div>

@@ -54,7 +54,7 @@ export const AudiosComponent = () => {
 
   const [query, setQuery] = useState("");
   const [language, setLanguage] = useState<string | null>("all");
-  const [orderBy, setOrderBy] = useState<string | null>("nameAsc");
+  const [orderBy, setOrderBy] = useState<string | null>("nameDesc");
   const debouncedQuery = useDebounce(query, 500);
 
   const [editing, setEditing] = useState<Partial<AudioType> | null>(null);

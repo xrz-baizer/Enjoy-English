@@ -1,6 +1,10 @@
-# Enjoy App
+# Enjoy English App
 
 这是一个基于Electron的音频学习应用。
+
+- 原项目：https://github.com/ZuodaoTech/everyone-can-use-english
+
+- 当前版本只保留音频核心功能，增加了一些自定义常用功能。
 
 ## 启动命令
 

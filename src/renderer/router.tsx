@@ -38,7 +38,7 @@ export default createHashRouter([
         index: true,
         element: (
           <ProtectedPage>
-            <Home />
+            <Audios />
           </ProtectedPage>
         ),
       },

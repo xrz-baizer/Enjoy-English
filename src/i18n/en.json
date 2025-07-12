@@ -719,6 +719,8 @@
   "isolateVoice": "Isolate voice(Experimental)",
   "isolateVoiceDescription": "Isolates voice from any music or background ambience. More accurate but slower",
   "sortBy": "Sort by",
+  "nameAsc": "Name ascending",
+  "nameDesc": "Name descending",
   "createdAtDesc": "Created at desc",
   "createdAtAsc": "Created at asc",
   "updatedAtDesc": "Updated at desc",

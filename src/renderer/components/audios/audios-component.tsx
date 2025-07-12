@@ -54,14 +54,14 @@ export const AudiosComponent = () => {
 
   const [query, setQuery] = useState("");
   const [language, setLanguage] = useState<string | null>("all");
-  const [orderBy, setOrderBy] = useState<string | null>("updatedAtDesc");
+  const [orderBy, setOrderBy] = useState<string | null>("nameAsc");
   const debouncedQuery = useDebounce(query, 500);
 
   const [editing, setEditing] = useState<Partial<AudioType> | null>(null);
   const [deleting, setDeleting] = useState<Partial<AudioType> | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const [tab, setTab] = useState("grid");
+  const [tab, setTab] = useState("list");
 
   useEffect(() => {
     addDblistener(onAudiosUpdate);
@@ -92,6 +92,12 @@ export const AudiosComponent = () => {
 
     let order = [];
     switch (orderBy) {
+      case "nameAsc":
+        order = [["name", "ASC"]];
+        break;
+      case "nameDesc":
+        order = [["name", "DESC"]];
+        break;
       case "updatedAtDesc":
         order = [["updatedAt", "DESC"]];
         break;
@@ -108,7 +114,7 @@ export const AudiosComponent = () => {
         order = [["recordingsCount", "DESC"]];
         break;
       default:
-        order = [["updatedAt", "DESC"]];
+        order = [["name", "ASC"]];
     }
     let where = {};
     if (language != "all") {
@@ -174,20 +180,26 @@ export const AudiosComponent = () => {
         <Tabs value={tab} onValueChange={setTab}>
           <div className="flex flex-wrap items-center gap-4 mb-4">
             <TabsList>
-              <TabsTrigger value="grid">
-                <LayoutGridIcon className="h-4 w-4" />
-              </TabsTrigger>
               <TabsTrigger value="list">
                 <LayoutListIcon className="h-4 w-4" />
+              </TabsTrigger>
+              <TabsTrigger value="grid">
+                <LayoutGridIcon className="h-4 w-4" />
               </TabsTrigger>
             </TabsList>
 
             <Select value={orderBy} onValueChange={setOrderBy}>
-              <SelectTrigger className="max-w-36">
+              <SelectTrigger className="max-w-60">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
+                  <SelectItem value="nameAsc">
+                    {t("nameAsc")}
+                  </SelectItem>
+                  <SelectItem value="nameDesc">
+                    {t("nameDesc")}
+                  </SelectItem>
                   <SelectItem value="updatedAtDesc">
                     {t("updatedAtDesc")}
                   </SelectItem>
@@ -207,21 +219,7 @@ export const AudiosComponent = () => {
               </SelectContent>
             </Select>
 
-            <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger className="max-w-36">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectItem value="all">{t("allLanguages")}</SelectItem>
-                  {LANGUAGES.map((lang) => (
-                    <SelectItem key={lang.code} value={lang.code}>
-                      {lang.code}
-                    </SelectItem>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+      
 
             <Input
               className="max-w-48"

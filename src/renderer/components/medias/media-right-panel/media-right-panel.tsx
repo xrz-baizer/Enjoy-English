@@ -42,10 +42,8 @@ export const MediaRightPanel = (props: {
   const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
   const [multiSelecting, setMultiSelecting] = useState<boolean>(false);
 
-  const [displayIpa, setDisplayIpa] = useState<boolean>(true);
+  const [displayIpa, setDisplayIpa] = useState<boolean>(false);
   const [displayNotes, setDisplayNotes] = useState<boolean>(true);
-
-  const [tab, setTab] = useState<string>("translation");
 
   const toggleMultiSelect = (event: KeyboardEvent) => {
     setMultiSelecting(event.shiftKey && event.type === "keydown");
@@ -194,72 +192,39 @@ export const MediaRightPanel = (props: {
 
   return (
     <div className={cn("h-full relative", className)}>
-      <div className="flex-1 font-serif h-full">
-        <Tabs
-          value={tab}
-          onValueChange={(value) => setTab(value)}
-          className="h-full flex flex-col"
-        >
-          <div className="flex items-center bg-muted px-4">
-            {layout === "compact" && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="mr-2"
-                onClick={() => setDisplayPanel?.("left")}
-              >
-                <ArrowLeftRightIcon className="w-4 h-4" />
-              </Button>
-            )}
-            <TabsList className="grid grid-cols-3 gap-4 rounded-none w-full">
-              <TabsTrigger
-                value="translation"
-                className="capitalize block truncate px-1"
-              >
-                {t("captionTabs.translation")}
-              </TabsTrigger>
-              <TabsTrigger
-                value="note"
-                className="capitalize block truncate px-1"
-              >
-                {t("captionTabs.note")}
-              </TabsTrigger>
-              <TabsTrigger
-                value="analysis"
-                className="capitalize block truncate px-1"
-              >
-                {t("captionTabs.analysis")}
-              </TabsTrigger>
-            </TabsList>
+      <div className="flex-1 font-serif h-full flex flex-col">
+        {layout === "compact" && (
+          <div className="px-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="mr-2"
+              onClick={() => setDisplayPanel?.("left")}
+            >
+              <ArrowLeftRightIcon className="w-4 h-4" />
+            </Button>
           </div>
-          <ScrollArea className="flex-1 relative">
-            <MediaCaption
-              caption={caption}
-              language={transcription.language}
-              selectedIndices={selectedIndices}
+        )}
+        <ScrollArea className="flex-1 relative">
+          <MediaCaption
+            caption={caption}
+            language={transcription.language}
+            selectedIndices={selectedIndices}
+            currentSegmentIndex={currentSegmentIndex}
+            activeIndex={activeIndex}
+            displayIpa={displayIpa}
+            displayNotes={displayNotes}
+            onClick={toggleSeletedIndex}
+          />
+
+          <div className="px-4 pb-10 min-h-32">
+            <MediaCaptionNote
               currentSegmentIndex={currentSegmentIndex}
-              activeIndex={activeIndex}
-              displayIpa={displayIpa}
-              displayNotes={displayNotes}
-              onClick={toggleSeletedIndex}
+              selectedIndices={selectedIndices}
+              setSelectedIndices={setSelectedIndices}
             />
-
-            <div className="px-4 pb-10 min-h-32">
-              <MediaCaptionNote
-                currentSegmentIndex={currentSegmentIndex}
-                selectedIndices={selectedIndices}
-                setSelectedIndices={setSelectedIndices}
-              />
-
-              <MediaCaptionTranslation
-                caption={caption}
-                selectedIndices={selectedIndices}
-              />
-
-              <MediaCaptionAnalysis text={caption.text} />
-            </div>
-          </ScrollArea>
-        </Tabs>
+          </div>
+        </ScrollArea>
       </div>
 
       <div className="absolute bottom-4 right-4">

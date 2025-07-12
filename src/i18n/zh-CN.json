@@ -719,6 +719,8 @@
   "isolateVoice": "提取人声(实验性)",
   "isolateVoiceDescription": "将人声从音乐、背景音中隔离，字幕对齐会更准确，但耗时较久。",
   "sortBy": "排序",
+  "nameAsc": "名称升序",
+  "nameDesc": "名称降序",
   "createdAtDesc": "创建时间降序",
   "createdAtAsc": "创建时间升序",
   "updatedAtDesc": "更新时间降序",

@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { AppSettingsProviderContext } from "@renderer/context";
-import { Button, toast, TabsContent } from "@renderer/components/ui";
+import { Button, toast } from "@renderer/components/ui";
 import { ConversationShortcuts } from "@renderer/components";
 import { t } from "i18next";
 import { BotIcon } from "lucide-react";
@@ -44,7 +44,7 @@ export function MediaCaptionAnalysis(props: { text: string }) {
   }, [text]);
 
   return (
-    <TabsContent value="analysis">
+    <div>
       {analysisResult ? (
         <>
           <Markdown
@@ -104,7 +104,7 @@ export function MediaCaptionAnalysis(props: { text: string }) {
           />
         </div>
       )}
-    </TabsContent>
+    </div>
   );
 }
 

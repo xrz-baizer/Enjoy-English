@@ -36,7 +36,7 @@ import debounce from "lodash/debounce";
 import { AlignmentResult } from "echogarden/dist/api/API.d.js";
 import { TimelineEntry } from "echogarden/dist/utilities/Timeline.d.js";
 
-const PLAYBACK_RATE_OPTIONS = [0.75, 0.8, 0.9, 1.0];
+const PLAYBACK_RATE_OPTIONS = [0.8, 0.9, 1.0];
 export const MediaPlayerControls = () => {
   const {
     decoded,
@@ -543,48 +543,21 @@ export const MediaPlayerControls = () => {
   return (
     <div className="w-full h-14 flex items-center justify-center px-6">
       <div className="flex items-center justify-center space-x-2">
-        <Popover>
-          <PopoverTrigger asChild>
+        <div className="flex items-center space-x-1">
+          {PLAYBACK_RATE_OPTIONS.map((rate) => (
             <Button
-              variant={`${playbackRate == 1.0 ? "ghost" : "secondary"}`}
-              data-tooltip-id="media-shadow-tooltip"
-              data-tooltip-content={t("playbackSpeed")}
-              className="relative aspect-square p-0 h-8"
+              key={rate}
+              variant={playbackRate === rate ? "default" : "ghost"}
+              size="sm"
+              className="h-7 px-2"
+              onClick={() => {
+                setPlaybackRate(rate);
+              }}
             >
-              <GaugeIcon className="w-6 h-6" />
-              {playbackRate != 1.0 && (
-                <span className="absolute left-[1.25rem] top-6 text-[0.6rem] font-bold text-gray-400">
-                  {playbackRate.toFixed(2)}
-                </span>
-              )}
+              {rate}x
             </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-96">
-            <div
-              id="media-playback-rate-controller"
-              className="mb-4 text-center"
-            >
-              {t("playbackRate")}
-            </div>
-            <div className="w-full rounded-full flex items-center justify-between bg-muted">
-              {PLAYBACK_RATE_OPTIONS.map((rate, i) => (
-                <div
-                  key={i}
-                  className={`cursor-pointer h-8 w-8 leading-8 rounded-full flex items-center justify-center ${
-                    rate === playbackRate
-                      ? "bg-primary text-white text-md"
-                      : "text-black/70 text-xs"
-                  }`}
-                  onClick={() => {
-                    setPlaybackRate(rate);
-                  }}
-                >
-                  <span className="">{rate}</span>
-                </div>
-              ))}
-            </div>
-          </PopoverContent>
-        </Popover>
+          ))}
+        </div>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

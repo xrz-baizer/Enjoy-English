@@ -34,16 +34,16 @@ export const AudiosTable = (props: {
       <TableHeader>
         <TableRow>
           <TableHead className="capitalize">{t("models.audio.name")}</TableHead>
-          <TableHead className="capitalize">{t("language")}</TableHead>
+          {/* <TableHead className="capitalize">{t("language")}</TableHead> */}
           <TableHead className="capitalize">
             {t("models.audio.duration")}
           </TableHead>
-          <TableHead className="capitalize">
+          {/* <TableHead className="capitalize">
             {t("models.audio.recordingsCount")}
           </TableHead>
           <TableHead className="capitalize">
             {t("models.audio.recordingsDuration")}
-          </TableHead>
+          </TableHead> */}
           <TableHead className="capitalize">
             {t("models.audio.updatedAt")}
           </TableHead>
@@ -83,14 +83,14 @@ export const AudiosTable = (props: {
                 </Tooltip>
               </TooltipProvider>
             </TableCell>
-            <TableCell>{audio.language ? audio.language : "-"}</TableCell>
+            {/* <TableCell>{audio.language ? audio.language : "-"}</TableCell> */}
             <TableCell>
               {audio.duration ? secondsToTimestamp(audio.duration) : "-"}
             </TableCell>
-            <TableCell>{audio.recordingsCount}</TableCell>
-            <TableCell>
+            {/* <TableCell>{audio.recordingsCount}</TableCell> */}
+            {/* <TableCell>
               {secondsToTimestamp(audio.recordingsDuration / 1000)}
-            </TableCell>
+            </TableCell> */}
             <TableCell>{formatDateTime(audio.updatedAt)}</TableCell>
             <TableCell>
               {audio.transcribed ? (

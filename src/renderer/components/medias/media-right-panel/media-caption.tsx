@@ -66,7 +66,7 @@ export const MediaCaption = (props: {
           id={`word-${currentSegmentIndex}-${index}`}
         >
           <div
-            className={`font-serif xl:text-lg 2xl:text-xl px-1 ${
+            className={`font-serif px-1 ${
               onClick && "hover:bg-red-500/10 cursor-pointer"
             } ${index === activeIndex ? "text-red-500" : ""} ${
               selectedIndices.includes(index) ? "bg-red-500/10 selected" : ""
@@ -75,6 +75,9 @@ export const MediaCaption = (props: {
                 ? "border-b border-red-500 border-dashed"
                 : ""
             }`}
+            style={{ 
+              fontSize: `calc(1.125rem * var(--caption-text-size, 1))` 
+            }}
             onClick={() => onClick && onClick(index)}
           >
             {word}
@@ -82,13 +85,16 @@ export const MediaCaption = (props: {
 
           {displayIpa && (
             <div
-              className={`select-text text-sm 2xl:text-base text-muted-foreground font-code px-1 ${
+              className={`select-text text-muted-foreground font-code px-1 ${
                 index === 0 ? "before:content-['/']" : ""
               } ${
                 index === caption.timeline.length - 1
-                  ? "after:content-['/']"
+                  ? "after:content-['/']" 
                   : ""
               }`}
+              style={{ 
+                fontSize: `calc(0.875rem * var(--caption-text-size, 1))` 
+              }}
             >
               {ipas[index]}
             </div>
@@ -100,7 +106,10 @@ export const MediaCaption = (props: {
               .map((note) => (
                 <div
                   key={`note-${currentSegmentIndex}-${note.id}`}
-                  className="mb-1 text-xs 2xl:text-sm text-red-500 max-w-64 line-clamp-3 font-code cursor-pointer"
+                  className="mb-1 text-red-500 max-w-64 line-clamp-3 font-code cursor-pointer"
+                  style={{ 
+                    fontSize: `calc(0.75rem * var(--caption-text-size, 1))` 
+                  }}
                   onMouseOver={() =>
                     setNotedquoteIndices(note.parameters.quoteIndices)
                   }

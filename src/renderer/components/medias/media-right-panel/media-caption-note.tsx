@@ -1,5 +1,5 @@
 import { MediaShadowProviderContext } from "@renderer/context";
-import { Button, TabsContent, toast } from "@renderer/components/ui";
+import { Button, toast } from "@renderer/components/ui";
 import { t } from "i18next";
 import { useContext, useState } from "react";
 import { NoteCard, NoteForm } from "@renderer/components";
@@ -20,19 +20,16 @@ export const MediaCaptionNote = (props: {
 
   if (!currentSegment) {
     return (
-      <TabsContent value="note">
-        <div className="py-4 flex justify-center items-center">
-          <Button size="sm" onClick={createSegment}>
-            {t("startToNote")}
-          </Button>
-        </div>
-      </TabsContent>
+      <div className="py-4 flex justify-center items-center">
+        <Button size="sm" onClick={createSegment}>
+          {t("startToNote")}
+        </Button>
+      </div>
     );
   }
 
   return (
-    <TabsContent value="note">
-      <div className="py-4">
+    <div className="py-4">
         <div className="">
           {!editingNote && (
             <div className="mb-6">
@@ -88,6 +85,5 @@ export const MediaCaptionNote = (props: {
           </div>
         </div>
       </div>
-    </TabsContent>
   );
 };

@@ -4,7 +4,7 @@ import {
   MediaShadowProviderContext,
   DictProviderContext,
 } from "@renderer/context";
-import { TabsContent, Separator } from "@renderer/components/ui";
+import { Separator } from "@renderer/components/ui";
 import { t } from "i18next";
 import { TimelineEntry } from "echogarden/dist/utilities/Timeline.d.js";
 import { convertWordIpaToNormal } from "@/utils";
@@ -27,14 +27,14 @@ export function MediaCaptionTranslation(props: {
   const { caption } = props;
 
   return (
-    <TabsContent value="translation">
+    <div>
       <SelectedWords {...props} />
       <Separator className="my-4" />
       <div className="text-sm italic text-muted-foreground mb-2">
         {t("translateSentence")}
       </div>
       <TranslateResult text={caption.text} />
-    </TabsContent>
+    </div>
   );
 }
 

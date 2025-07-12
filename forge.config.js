@@ -11,11 +11,11 @@ const config = {
       unpackDir: `{.vite/build/lib,.vite/build/samples,node_modules/ffmpeg-static,node_modules/@andrkrn/ffprobe-static,node_modules/onnxruntime-node/bin/napi-v3/${os.platform()}/${os.arch()},lib/dictionaries}`,
     },
     icon: "./assets/icon",
-    name: "Enjoy",
-    executableName: "enjoy",
+    name: "Enjoy-Ultimate",
+    executableName: "enjoy-ultimate",
     protocols: [
       {
-        name: "Enjoy",
+        name: "Enjoy-Ultimate",
         schemes: ["enjoy"],
       },
     ],
@@ -45,8 +45,8 @@ const config = {
       name: "@electron-forge/maker-deb",
       config: () => ({
         options: {
-          name: "enjoy",
-          productName: "Enjoy",
+          name: "enjoy-ultimate",
+          productName: "Enjoy-Ultimate",
           icon: "./assets/icon.png",
           mimeType: ["x-scheme-handler/enjoy"],
         },
@@ -55,7 +55,7 @@ const config = {
     // new MakerRpm({
     //   options: {
     //     name: "enjoy",
-    //     productName: "Enjoy",
+    //     productName: "Enjoy-Ultimate",
     //     icon: "./assets/icon.png",
     //     mimeType: ["x-scheme-handler/enjoy"],
     //   },

@@ -1,8 +1,8 @@
 {
   "type": "module",
   "private": true,
-  "name": "enjoy",
-  "productName": "Enjoy",
+  "name": "enjoy-ultimate",
+  "productName": "Enjoy-Ultimate",
   "version": "0.7.9",
   "description": "Enjoy desktop app",
   "main": ".vite/build/main.js",

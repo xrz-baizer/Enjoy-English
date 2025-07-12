@@ -14,7 +14,7 @@ import {
 export const Layout = () => {
   const { initialized } = useContext(AppSettingsProviderContext);
   const { active, setActive } = useContext(CopilotProviderContext);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   if (initialized) {
     return (

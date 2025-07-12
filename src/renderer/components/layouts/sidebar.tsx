@@ -46,7 +46,7 @@ export const Sidebar = (props: {
   isCollapsed: boolean;
   setIsCollapsed: (isCollapsed: boolean) => void;
 }) => {
-  const { isCollapsed, setIsCollapsed } = props;
+  const { isCollapsed , setIsCollapsed } = props;
   const location = useLocation();
   const activeTab = location.pathname;
   const { EnjoyApp, cable, displayPreferences, setDisplayPreferences } =
@@ -105,44 +105,6 @@ export const Sidebar = (props: {
           <SidebarHeader isCollapsed={isCollapsed} />
           <div className="grid gap-2 mb-4">
             <SidebarItem
-              href="/"
-              label={t("sidebar.home")}
-              tooltip={t("sidebar.home")}
-              active={activeTab === "/"}
-              Icon={HomeIcon}
-              isCollapsed={isCollapsed}
-            />
-
-            <SidebarItem
-              href="/chats"
-              label={t("sidebar.chats")}
-              tooltip={t("sidebar.chats")}
-              active={activeTab.startsWith("/chats")}
-              Icon={MessagesSquareIcon}
-              isCollapsed={isCollapsed}
-            />
-
-            <SidebarItem
-              href="/courses"
-              label={t("sidebar.courses")}
-              tooltip={t("sidebar.courses")}
-              active={activeTab.startsWith("/courses")}
-              Icon={GraduationCapIcon}
-              isCollapsed={isCollapsed}
-            />
-
-            <SidebarItem
-              href="/community"
-              label={t("sidebar.community")}
-              tooltip={t("sidebar.community")}
-              active={activeTab.startsWith("/community")}
-              Icon={UsersRoundIcon}
-              isCollapsed={isCollapsed}
-            />
-
-            <Separator />
-
-            <SidebarItem
               href="/audios"
               label={t("sidebar.audios")}
               tooltip={t("sidebar.audios")}
@@ -151,65 +113,7 @@ export const Sidebar = (props: {
               isCollapsed={isCollapsed}
             />
 
-            <SidebarItem
-              href="/videos"
-              label={t("sidebar.videos")}
-              tooltip={t("sidebar.videos")}
-              active={activeTab.startsWith("/videos")}
-              Icon={VideoIcon}
-              isCollapsed={isCollapsed}
-            />
 
-            <SidebarItem
-              href="/documents"
-              label={t("sidebar.documents")}
-              tooltip={t("sidebar.documents")}
-              active={activeTab.startsWith("/documents")}
-              Icon={NewspaperIcon}
-              isCollapsed={isCollapsed}
-            />
-
-            <Separator />
-
-            <SidebarItem
-              href="/conversations"
-              label={t("sidebar.aiAssistant")}
-              tooltip={t("sidebar.aiAssistant")}
-              active={activeTab.startsWith("/conversations")}
-              Icon={BotIcon}
-              testid="sidebar-conversations"
-              isCollapsed={isCollapsed}
-            />
-
-            <SidebarItem
-              href="/pronunciation_assessments"
-              label={t("sidebar.pronunciationAssessment")}
-              tooltip={t("sidebar.pronunciationAssessment")}
-              active={activeTab.startsWith("/pronunciation_assessments")}
-              Icon={SpeechIcon}
-              testid="sidebar-pronunciation-assessments"
-              isCollapsed={isCollapsed}
-            />
-
-            <SidebarItem
-              href="/notes"
-              label={t("sidebar.notes")}
-              tooltip={t("sidebar.notes")}
-              active={activeTab === "/notes"}
-              Icon={NotebookPenIcon}
-              isCollapsed={isCollapsed}
-            />
-
-            <SidebarItem
-              href="/vocabulary"
-              label={t("sidebar.vocabulary")}
-              tooltip={t("sidebar.vocabulary")}
-              active={activeTab.startsWith("/vocabulary")}
-              Icon={BookMarkedIcon}
-              isCollapsed={isCollapsed}
-            />
-
-            <Separator />
 
             <div className="px-1 non-draggable-region">
               <Button

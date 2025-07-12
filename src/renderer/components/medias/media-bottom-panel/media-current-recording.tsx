@@ -83,7 +83,7 @@ export const MediaCurrentRecording = () => {
   const [regions, setRegions] = useState<Regions | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
 
-  const [detailIsOpen, setDetailIsOpen] = useState(false);
+  const [detailIsOpen, setDetailIsOpen] = useState(true);
   const [isComparing, setIsComparing] = useState(false);
   const [isSharing, setIsSharing] = useState(false);
   const [isSelectingRegion, setIsSelectingRegion] = useState(false);
@@ -587,23 +587,24 @@ export const MediaCurrentRecording = () => {
 
   if (!currentRecording?.src)
     return (
-      <div className="h-full w-full flex items-center justify-center border rounded-xl shadow">
-        <div className="m-auto">
-          <div className="flex justify-center items-center mb-2">
-            <div className="w-8 aspect-square rounded-full overflow-hidden">
-              <MediaRecordButton />
-            </div>
-          </div>
-          <div
-            className=""
-            dangerouslySetInnerHTML={{
-              __html: t("noRecordingForThisSegmentYet", {
-                key: currentHotkeys.StartOrStopRecording?.toUpperCase(),
-              }),
-            }}
-          ></div>
-        </div>
-      </div>
+  <div></div>
+      // <div className="h-full w-full flex items-center justify-center border rounded-xl shadow">
+      //   <div className="m-auto">
+      //     <div className="flex justify-center items-center mb-2">
+      //       <div className="w-8 aspect-square rounded-full overflow-hidden">
+      //         <MediaRecordButton />
+      //       </div>
+      //     </div>
+      //     <div
+      //       className=""
+      //       dangerouslySetInnerHTML={{
+      //         __html: t("noRecordingForThisSegmentYet", {
+      //           key: currentHotkeys.StartOrStopRecording?.toUpperCase(),
+      //         }),
+      //       }}
+      //     ></div>
+      //   </div>
+      // </div>
     );
 
   return (

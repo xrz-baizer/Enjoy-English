@@ -59,7 +59,7 @@ export const MediaPlayerControls = () => {
   const { EnjoyApp } = useContext(AppSettingsProviderContext);
   const { currentHotkeys } = useContext(HotKeysSettingsProviderContext);
   const [playMode, setPlayMode] = useState<"loop" | "single" | "all">("single");
-  const [playbackRate, setPlaybackRate] = useState<number>(1);
+  const [playbackRate, setPlaybackRate] = useState<number>(0.9);
   const [grouping, setGrouping] = useState(false);
   const isLoopPausing = useRef(false);
 
@@ -548,8 +548,8 @@ export const MediaPlayerControls = () => {
             <Button
               key={rate}
               variant={playbackRate === rate ? "default" : "ghost"}
-              size="sm"
-              className="h-7 px-2"
+              size="lg"
+              className="h-7 px-4 text-base"
               onClick={() => {
                 setPlaybackRate(rate);
               }}

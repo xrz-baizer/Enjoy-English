@@ -1,0 +1,2 @@
+import{k as t,s,l as r}from"./index-DwDcCdzB.js";class d extends t{$$PROVIDER_TYPE="AUDIO";get type(){return"audio"}airPlay;constructor(i,e){super(i,e),s(()=>{this.airPlay=new r(this.media,e)},this.scope)}setup(){super.setup(),this.type==="audio"&&this.ctx.notify("provider-setup",this)}get audio(){return this.media}}export{d as AudioProvider};
+//# sourceMappingURL=vidstack-R_ot4AhB-DCJ5VE77.js.map

@@ -35,6 +35,7 @@ export const AudiosTable = (props: {
         <TableRow>
           <TableHead className="capitalize">{t("models.audio.name")}</TableHead>
           {/* <TableHead className="capitalize">{t("language")}</TableHead> */}
+          <TableHead className="capitalize"> {t("models.audio.description")} </TableHead>
           <TableHead className="capitalize">
             {t("models.audio.duration")}
           </TableHead>
@@ -44,12 +45,12 @@ export const AudiosTable = (props: {
           <TableHead className="capitalize">
             {t("models.audio.recordingsDuration")}
           </TableHead> */}
-          <TableHead className="capitalize">
-            {t("models.audio.updatedAt")}
-          </TableHead>
-          <TableHead className="capitalize">
-            {t("models.audio.isTranscribed")}
-          </TableHead>
+          {/*<TableHead className="capitalize">*/}
+          {/*  {t("models.audio.updatedAt")}*/}
+          {/*</TableHead>*/}
+          {/*<TableHead className="capitalize">*/}
+          {/*  {t("models.audio.isTranscribed")}*/}
+          {/*</TableHead>*/}
           <TableHead className="capitalize">{t("actions")}</TableHead>
         </TableRow>
       </TableHeader>
@@ -69,7 +70,7 @@ export const AudiosTable = (props: {
                             className="text-destructive w-4 h-4"
                           />
                         )}
-                        <div className="cursor-pointer truncate max-w-[20rem]">
+                        <div className="truncate cursor-pointer max-w-xs">
                           {audio.name}
                         </div>
                       </div>
@@ -83,6 +84,20 @@ export const AudiosTable = (props: {
                 </Tooltip>
               </TooltipProvider>
             </TableCell>
+            <TableCell>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <div className="truncate max-w-xs">
+                      {audio.description}
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{audio.description}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </TableCell>
             {/* <TableCell>{audio.language ? audio.language : "-"}</TableCell> */}
             <TableCell>
               {audio.duration ? secondsToTimestamp(audio.duration) : "-"}
@@ -91,14 +106,14 @@ export const AudiosTable = (props: {
             {/* <TableCell>
               {secondsToTimestamp(audio.recordingsDuration / 1000)}
             </TableCell> */}
-            <TableCell>{formatDateTime(audio.updatedAt)}</TableCell>
-            <TableCell>
-              {audio.transcribed ? (
-                <CheckCircleIcon className="text-green-500 w-4 h-4" />
-              ) : (
-                <PingPoint colorClassName="bg-gray-500" className="w-2 h-2" />
-              )}
-            </TableCell>
+            {/*<TableCell>{formatDateTime(audio.updatedAt)}</TableCell>*/}
+            {/*<TableCell>*/}
+            {/*  {audio.transcribed ? (*/}
+            {/*    <CheckCircleIcon className="text-green-500 w-4 h-4" />*/}
+            {/*  ) : (*/}
+            {/*    <PingPoint colorClassName="bg-gray-500" className="w-2 h-2" />*/}
+            {/*  )}*/}
+            {/*</TableCell>*/}
             <TableCell>
               <div className="flex items-center">
                 <Button

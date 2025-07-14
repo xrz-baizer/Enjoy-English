@@ -291,7 +291,7 @@ const RecorderButton = () => {
         setAccess(true);
       } else {
         setAccess(false);
-        toast.warning(t("noMicrophoneAccess"));
+        // toast.warning(t("noMicrophoneAccess"));
       }
     });
   };

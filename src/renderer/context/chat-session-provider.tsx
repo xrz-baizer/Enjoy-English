@@ -149,7 +149,7 @@ export const ChatSessionProvider = ({
   const askForMediaAccess = () => {
     EnjoyApp.system.preferences.mediaAccess("microphone").then((access) => {
       if (!access) {
-        toast.warning(t("noMicrophoneAccess"));
+        // toast.warning(t("noMicrophoneAccess"));
       }
     });
   };

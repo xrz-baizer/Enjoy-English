@@ -220,7 +220,7 @@ export const VocabularyPronunciationAssessment = (props: { word: string }) => {
         setAccess(true);
       } else {
         setAccess(false);
-        toast.warning(t("noMicrophoneAccess"));
+        // toast.warning(t("noMicrophoneAccess"));
       }
     });
   };

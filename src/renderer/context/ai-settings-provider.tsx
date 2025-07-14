@@ -42,7 +42,7 @@ export const AISettingsProvider = ({
   const db = useContext(DbProviderContext);
 
   const [sttEngine, setSttEngine] = useState<SttEngineOptionEnum>(
-    SttEngineOptionEnum.ENJOY_AZURE
+    SttEngineOptionEnum.LOCAL
   );
   const [ttsConfig, setTtsConfig] = useState<TtsConfigType>(null);
   const [echogardenSttConfig, setEchogardenSttConfig] =
